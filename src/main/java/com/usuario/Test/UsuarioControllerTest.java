@@ -37,7 +37,7 @@ public class UsuarioControllerTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this); 
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
