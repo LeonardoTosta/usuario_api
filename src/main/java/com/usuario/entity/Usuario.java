@@ -1,6 +1,5 @@
 package com.usuario.entity;
 
-import com.usuario.role.Role;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
@@ -12,7 +11,6 @@ public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;
-    private Role role;
 
     public Usuario() {
     }
@@ -53,13 +51,5 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

@@ -73,12 +73,10 @@ public class UsuarioService {
         }
     }
 
-    public List<Usuario> consultaUsuario(RequestFiltroUsuario vo){
+    public List<Usuario> consultaUsuario(RequestFiltroUsuario vo, Integer inicio, Integer max){
 
         Long Id = vo.getId();
         String nome = vo.getNome();
-        Integer inicio = vo.getInicio();
-        Integer max = vo.getMax();
 
         UsuarioFiltro filtro = new UsuarioFiltro();
 
@@ -88,6 +86,11 @@ public class UsuarioService {
 
         List<Usuario> usuarios = usuarioRepository.findByIdAndNome(filtro, inicio, max);
 
+        return usuarios;
+    }
+
+    public List<Usuario> listaUsuarios(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
         return usuarios;
     }
 }

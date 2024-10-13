@@ -33,9 +33,15 @@ public class UsuarioController {
         usuarioService.editaUsuario(id, requestFiltroUsuario);
     }
 
+    @GetMapping(path = "lista")
+    public ResponseEntity listaUsuarios(){
+        List<Usuario> listaUsuario = usuarioService.listaUsuarios();
+        return new ResponseEntity(listaUsuario, HttpStatus.OK);
+    }
+
     @GetMapping(path = "consulta/{inicio}/{max}")
     public ResponseEntity consultaUsuario (@PathVariable(value = "inicio") Integer inicio, @PathVariable(value = "max") Integer max, @RequestBody RequestFiltroUsuario requestFiltroUsuario){
-        List<Usuario> listaUsuario = usuarioService.consultaUsuario(requestFiltroUsuario);
+        List<Usuario> listaUsuario = usuarioService.consultaUsuario(requestFiltroUsuario, inicio, max);
         return new ResponseEntity(listaUsuario, HttpStatus.OK);
     }
 }

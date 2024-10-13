@@ -45,6 +45,8 @@ public class UsuarioControllerTest {
 
         RequestFiltroUsuario filtro = new RequestFiltroUsuario();
         filtro.setNome("Leonardo");
+        Integer inicio = 1;
+        Integer max = 9;
 
         List<Usuario> usuarios = Arrays.asList(
                 new Usuario( "Leonardo"),
@@ -52,7 +54,7 @@ public class UsuarioControllerTest {
         );
 
 
-        when(usuarioService.consultaUsuario(filtro)).thenReturn(usuarios);
+        when(usuarioService.consultaUsuario(filtro, inicio, max)).thenReturn(usuarios);
 
         mockMvc.perform(get("/api/consulta/0/10")
                         .header("Authorization", "Basic dXNlcjpwYXNzd29yZA==")

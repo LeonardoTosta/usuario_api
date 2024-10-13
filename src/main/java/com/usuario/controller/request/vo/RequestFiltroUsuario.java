@@ -18,11 +18,6 @@ public class RequestFiltroUsuario {
     @ApiModelProperty(notes = "Senha.")
     private String senha;
 
-    @ApiModelProperty(notes = "Inicio.")
-    private Integer inicio;
-
-    @ApiModelProperty(notes = "Max.")
-    private Integer max;
 
     public Long getId() {
         return id;
@@ -54,21 +49,5 @@ public class RequestFiltroUsuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Integer getInicio() {
-        return inicio;
-    }
-
-    public void setInicio(Integer inicio) {
-        this.inicio = inicio;
-    }
-
-    public Integer getMax() {
-        return max;
-    }
-
-    public void setMax(Integer max) {
-        this.max = max;
     }
 }

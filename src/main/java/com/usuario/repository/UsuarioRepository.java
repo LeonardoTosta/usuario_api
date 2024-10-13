@@ -25,7 +25,6 @@ public class UsuarioRepository {
         session.save(usuario);
     }
 
-
     @Transactional
     public List<Usuario> findByIdAndNome(UsuarioFiltro filtro, Integer inicio, Integer max){
 
@@ -59,6 +58,23 @@ public class UsuarioRepository {
         if (inicio != null && max != null) {
             query.setFirstResult(inicio);
             query.setMaxResults(max);
+        }
+
+        return query.getResultList();
+    }
+
+    public List<Usuario> findAll(){
+        StringBuilder hql = new StringBuilder();
+
+        Map<String, Object> params = new LinkedHashMap<>();
+
+        hql.append("select u from ").append(Usuario.class.getName()).append(" u ");
+
+        Session session = entityManager.unwrap(Session.class);
+        Query<Usuario> query = session.createQuery(hql.toString(), Usuario.class);
+
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            query.setParameter(entry.getKey(), entry.getValue());
         }
 
         return query.getResultList();
